@@ -6,8 +6,8 @@ df = pd.read_csv('train.csv')
 preprocessor = Preprocessor(df)
 preprocessor_run = preprocessor.run_pipeline()
 
-exclude_cols = ['price_doc','timestamp']
-feature_cols = [col for col in preprocessor_run.columns if col not in exclude_cols]
+test_cols = ['price_doc','timestamp']
+feature_cols = [col for col in preprocessor_run.columns if col not in test_cols]
 X = preprocessor_run[feature_cols]
 y = preprocessor_run['price_doc']
 trainer = TrainModel(X,y)
